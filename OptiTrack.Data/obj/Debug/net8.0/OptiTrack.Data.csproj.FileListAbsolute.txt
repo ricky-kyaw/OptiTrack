@@ -1,0 +1,11 @@
+C:\Users\Acer\source\repos\OptiTrack\OptiTrack.Data\bin\Debug\net8.0\OptiTrack.Data.deps.json
+C:\Users\Acer\source\repos\OptiTrack\OptiTrack.Data\bin\Debug\net8.0\OptiTrack.Data.dll
+C:\Users\Acer\source\repos\OptiTrack\OptiTrack.Data\bin\Debug\net8.0\OptiTrack.Data.pdb
+C:\Users\Acer\source\repos\OptiTrack\OptiTrack.Data\obj\Debug\net8.0\OptiTrack.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Acer\source\repos\OptiTrack\OptiTrack.Data\obj\Debug\net8.0\OptiTrack.Data.AssemblyInfoInputs.cache
+C:\Users\Acer\source\repos\OptiTrack\OptiTrack.Data\obj\Debug\net8.0\OptiTrack.Data.AssemblyInfo.cs
+C:\Users\Acer\source\repos\OptiTrack\OptiTrack.Data\obj\Debug\net8.0\OptiTrack.Data.csproj.CoreCompileInputs.cache
+C:\Users\Acer\source\repos\OptiTrack\OptiTrack.Data\obj\Debug\net8.0\OptiTrack.Data.dll
+C:\Users\Acer\source\repos\OptiTrack\OptiTrack.Data\obj\Debug\net8.0\refint\OptiTrack.Data.dll
+C:\Users\Acer\source\repos\OptiTrack\OptiTrack.Data\obj\Debug\net8.0\OptiTrack.Data.pdb
+C:\Users\Acer\source\repos\OptiTrack\OptiTrack.Data\obj\Debug\net8.0\ref\OptiTrack.Data.dll
