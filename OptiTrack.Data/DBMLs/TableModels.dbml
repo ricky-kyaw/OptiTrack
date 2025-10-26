@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="OptiTrackDB" Class="TableModelsDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Table Name="dbo.AppUserRoles" Member="AppUserRoles">
+    <Type Name="AppUserRole">
+      <Column Name="AppUserID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RoleID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="AppUser_AppUserRole" Member="AppUser" ThisKey="AppUserID" OtherKey="AppUserID" Type="AppUser" IsForeignKey="true" />
+      <Association Name="Role_AppUserRole" Member="Role" ThisKey="RoleID" OtherKey="RoleID" Type="Role" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AppUsers" Member="AppUsers">
+    <Type Name="AppUser">
+      <Column Name="AppUserID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="EmployeeID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="PasswordHash" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="PasswordSalt" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LastLogin" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Association Name="AppUser_AppUserRole" Member="AppUserRoles" ThisKey="AppUserID" OtherKey="AppUserID" Type="AppUserRole" />
+      <Association Name="AppUser_Employee" Member="Employees" ThisKey="AppUserID" OtherKey="AppUserID" Type="Employee" />
+      <Association Name="Employee_AppUser" Member="Employee" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="Employee" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Attendance" Member="Attendances">
+    <Type Name="Attendance">
+      <Column Name="AttendanceID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="EmployeeID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="ClockInTime" Type="System.DateTime" DbType="DateTime2 NOT NULL" CanBeNull="false" />
+      <Column Name="ClockOutTime" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Association Name="Employee_Attendance" Member="Employee" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="Employee" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Departments" Member="Departments">
+    <Type Name="Department">
+      <Column Name="DepartmentID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DepartmentName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="Department_Employee" Member="Employees" ThisKey="DepartmentID" OtherKey="DepartmentID" Type="Employee" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Employees" Member="Employees">
+    <Type Name="Employee">
+      <Column Name="EmployeeID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="AppUserID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="PhoneNumber" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="JobTitleID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="DepartmentID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="PayTypeID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="PayRate" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="ManagerID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="CreatedAt" Type="System.DateTime" DbType="DateTime2 NOT NULL" CanBeNull="false" />
+      <Column Name="UpdatedAt" Type="System.DateTime" DbType="DateTime2 NOT NULL" CanBeNull="false" />
+      <Association Name="Employee_AppUser" Member="AppUsers" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="AppUser" />
+      <Association Name="Employee_Attendance" Member="Attendances" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="Attendance" />
+      <Association Name="Employee_Employee" Member="Employees" ThisKey="EmployeeID" OtherKey="ManagerID" Type="Employee" />
+      <Association Name="Employee_OvertimeRequest" Member="OvertimeRequests" ThisKey="EmployeeID" OtherKey="ApproverID" Type="OvertimeRequest" />
+      <Association Name="Employee_OvertimeRequest1" Member="OvertimeRequests1" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="OvertimeRequest" />
+      <Association Name="Employee_Payslip" Member="Payslips" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="Payslip" />
+      <Association Name="Department_Employee" Member="Department" ThisKey="DepartmentID" OtherKey="DepartmentID" Type="Department" IsForeignKey="true" />
+      <Association Name="Employee_Employee" Member="Employee1" ThisKey="ManagerID" OtherKey="EmployeeID" Type="Employee" IsForeignKey="true" />
+      <Association Name="AppUser_Employee" Member="AppUser" ThisKey="AppUserID" OtherKey="AppUserID" Type="AppUser" IsForeignKey="true" />
+      <Association Name="JobTitle_Employee" Member="JobTitle" ThisKey="JobTitleID" OtherKey="JobTitleID" Type="JobTitle" IsForeignKey="true" />
+      <Association Name="PayType_Employee" Member="PayType" ThisKey="PayTypeID" OtherKey="PayTypeID" Type="PayType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.JobTitles" Member="JobTitles">
+    <Type Name="JobTitle">
+      <Column Name="JobTitleID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TitleName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="JobTitle_Employee" Member="Employees" ThisKey="JobTitleID" OtherKey="JobTitleID" Type="Employee" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OvertimeRequests" Member="OvertimeRequests">
+    <Type Name="OvertimeRequest">
+      <Column Name="OvertimeRequestID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="EmployeeID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="StartTime" Type="System.DateTime" DbType="DateTime2 NOT NULL" CanBeNull="false" />
+      <Column Name="EndTime" Type="System.DateTime" DbType="DateTime2 NOT NULL" CanBeNull="false" />
+      <Column Name="RateMultiplier" Type="System.Decimal" DbType="Decimal(4,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="ApproverID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="CreatedAt" Type="System.DateTime" DbType="DateTime2 NOT NULL" CanBeNull="false" />
+      <Association Name="Employee_OvertimeRequest" Member="Employee" ThisKey="ApproverID" OtherKey="EmployeeID" Type="Employee" IsForeignKey="true" />
+      <Association Name="Employee_OvertimeRequest1" Member="Employee1" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="Employee" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PayslipDetails" Member="PayslipDetails">
+    <Type Name="PayslipDetail">
+      <Column Name="PayslipDetailID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PayslipID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="Type" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Amount" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Association Name="Payslip_PayslipDetail" Member="Payslip" ThisKey="PayslipID" OtherKey="PayslipID" Type="Payslip" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Payslips" Member="Payslips">
+    <Type Name="Payslip">
+      <Column Name="PayslipID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="EmployeeID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="PayPeriodStartDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="PayPeriodEndDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="PaymentDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="GrossPay" Type="System.Decimal" DbType="Decimal(12,2) NOT NULL" CanBeNull="false" />
+      <Column Name="TotalDeductions" Type="System.Decimal" DbType="Decimal(12,2) NOT NULL" CanBeNull="false" />
+      <Column Name="NetPay" Type="System.Decimal" DbType="Decimal(12,2) NOT NULL" CanBeNull="false" />
+      <Association Name="Payslip_PayslipDetail" Member="PayslipDetails" ThisKey="PayslipID" OtherKey="PayslipID" Type="PayslipDetail" />
+      <Association Name="Employee_Payslip" Member="Employee" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="Employee" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PayTypes" Member="PayTypes">
+    <Type Name="PayType">
+      <Column Name="PayTypeID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TypeName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="PayType_Employee" Member="Employees" ThisKey="PayTypeID" OtherKey="PayTypeID" Type="Employee" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Roles" Member="Roles">
+    <Type Name="Role">
+      <Column Name="RoleID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RoleName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Role_AppUserRole" Member="AppUserRoles" ThisKey="RoleID" OtherKey="RoleID" Type="AppUserRole" />
+    </Type>
+  </Table>
+</Database>

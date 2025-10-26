@@ -6,4 +6,48 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Mindbox.Data.Linq" Version="10.7.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="DBMLs\TableModels.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>TableModels.designer.cs</LastGenOutput>
+    </None>
+    <None Update="DBMLs\ViewModels.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>ViewModels.designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{3259aa49-8aa1-44d3-9025-a0b520596a8c}" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="DBMLs\TableModels.designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>TableModels.dbml</DependentUpon>
+    </Compile>
+    <Compile Update="DBMLs\ViewModels.designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ViewModels.dbml</DependentUpon>
+    </Compile>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
 </Project>
