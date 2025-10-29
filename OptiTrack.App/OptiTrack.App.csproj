@@ -16,4 +16,8 @@
     <PackageReference Include="Mindbox.Data.Linq" Version="10.7.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\OptiTrack.Data\OptiTrack.Data.csproj" />
+  </ItemGroup>
+
 </Project>

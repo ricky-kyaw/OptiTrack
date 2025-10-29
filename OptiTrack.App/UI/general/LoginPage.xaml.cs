@@ -11,22 +11,44 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using OptiTrack.Data.DBConnector;
 
 namespace OptiTrack.App.UI.general
 {
-    /// <summary>
-    /// Interaction logic for LoginPage.xaml
-    /// </summary>
     public partial class LoginPage : Window
     {
+        TableModelsConnector connector;
+        ViewModelsConnector vConnector;
+
         public LoginPage()
         {
             InitializeComponent();
+            connector = new TableModelsConnector();
         }
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
+            UsernameTextBox.Text = "";
 
+
+        }
+
+        private void EmployeeRadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void AdminRadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void UsernameTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+        private void ForgotPassword_Click(object sender, RoutedEventArgs e)
+        {
         }
     }
 }

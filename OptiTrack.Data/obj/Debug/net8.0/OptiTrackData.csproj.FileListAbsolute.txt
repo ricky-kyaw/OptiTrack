@@ -1,0 +1,15 @@
+C:\OptiTrackApp\OptiTrack.Data\bin\Debug\net8.0\OptiTrackData.deps.json
+C:\OptiTrackApp\OptiTrack.Data\bin\Debug\net8.0\OptiTrackData.dll
+C:\OptiTrackApp\OptiTrack.Data\bin\Debug\net8.0\OptiTrackData.pdb
+C:\OptiTrackApp\OptiTrack.Data\obj\Debug\net8.0\OptiTrackData.csproj.AssemblyReference.cache
+C:\OptiTrackApp\OptiTrack.Data\obj\Debug\net8.0\OptiTrackData.Properties.Resources.resources
+C:\OptiTrackApp\OptiTrack.Data\obj\Debug\net8.0\OptiTrackData.csproj.GenerateResource.cache
+C:\OptiTrackApp\OptiTrack.Data\obj\Debug\net8.0\OptiTrackData.GeneratedMSBuildEditorConfig.editorconfig
+C:\OptiTrackApp\OptiTrack.Data\obj\Debug\net8.0\OptiTrackData.AssemblyInfoInputs.cache
+C:\OptiTrackApp\OptiTrack.Data\obj\Debug\net8.0\OptiTrackData.AssemblyInfo.cs
+C:\OptiTrackApp\OptiTrack.Data\obj\Debug\net8.0\OptiTrackData.csproj.CoreCompileInputs.cache
+C:\OptiTrackApp\OptiTrack.Data\obj\Debug\net8.0\OptiTrackData.sourcelink.json
+C:\OptiTrackApp\OptiTrack.Data\obj\Debug\net8.0\OptiTrackData.dll
+C:\OptiTrackApp\OptiTrack.Data\obj\Debug\net8.0\refint\OptiTrackData.dll
+C:\OptiTrackApp\OptiTrack.Data\obj\Debug\net8.0\OptiTrackData.pdb
+C:\OptiTrackApp\OptiTrack.Data\obj\Debug\net8.0\ref\OptiTrackData.dll

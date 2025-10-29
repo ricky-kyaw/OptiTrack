@@ -12,6 +12,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OptiTrack.App", "OptiTrack.App\OptiTrack.App.csproj", "{05E38C2A-D2EF-4635-9666-DB00270DC2C3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OptiTrack.Business", "OptiTrack.Business\OptiTrack.Business.csproj", "{F0B44929-CADC-4638-B40B-2B9348C727A4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OptiTrack.Core", "OptiTrack.Core\OptiTrack.Core.csproj", "{046BC33F-FC36-468C-BA2E-A3D202CCB8E7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,6 +30,14 @@ Global
 		{05E38C2A-D2EF-4635-9666-DB00270DC2C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{05E38C2A-D2EF-4635-9666-DB00270DC2C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{05E38C2A-D2EF-4635-9666-DB00270DC2C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F0B44929-CADC-4638-B40B-2B9348C727A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0B44929-CADC-4638-B40B-2B9348C727A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0B44929-CADC-4638-B40B-2B9348C727A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0B44929-CADC-4638-B40B-2B9348C727A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{046BC33F-FC36-468C-BA2E-A3D202CCB8E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{046BC33F-FC36-468C-BA2E-A3D202CCB8E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{046BC33F-FC36-468C-BA2E-A3D202CCB8E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{046BC33F-FC36-468C-BA2E-A3D202CCB8E7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
