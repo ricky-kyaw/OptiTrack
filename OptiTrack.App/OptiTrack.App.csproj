@@ -17,6 +17,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\OptiTrack.Business\OptiTrack.Business.csproj" />
+    <ProjectReference Include="..\OptiTrack.Core\OptiTrack.Core.csproj" />
     <ProjectReference Include="..\OptiTrack.Data\OptiTrack.Data.csproj" />
   </ItemGroup>
 

@@ -1,10 +1,3 @@
-C:\OptiTrackApp\OptiTrack.App\obj\Debug\net8.0-windows\OptiTrack.App.csproj.AssemblyReference.cache
-C:\OptiTrackApp\OptiTrack.App\obj\Debug\net8.0-windows\UI\admin\adminDashboard.g.cs
-C:\OptiTrackApp\OptiTrack.App\obj\Debug\net8.0-windows\UI\employees\employeeDashboard.g.cs
-C:\OptiTrackApp\OptiTrack.App\obj\Debug\net8.0-windows\UI\general\LoginPage.g.cs
-C:\OptiTrackApp\OptiTrack.App\obj\Debug\net8.0-windows\App.g.cs
-C:\OptiTrackApp\OptiTrack.App\obj\Debug\net8.0-windows\OptiTrack.App_MarkupCompile.cache
-C:\OptiTrackApp\OptiTrack.App\obj\Debug\net8.0-windows\OptiTrack.App_MarkupCompile.lref
 C:\OptiTrackApp\OptiTrack.App\bin\Debug\net8.0-windows\OptiTrack.App.exe
 C:\OptiTrackApp\OptiTrack.App\bin\Debug\net8.0-windows\OptiTrack.App.deps.json
 C:\OptiTrackApp\OptiTrack.App\bin\Debug\net8.0-windows\OptiTrack.App.runtimeconfig.json
@@ -38,6 +31,13 @@ C:\OptiTrackApp\OptiTrack.App\bin\Debug\net8.0-windows\runtimes\win-x86\native\M
 C:\OptiTrackApp\OptiTrack.App\bin\Debug\net8.0-windows\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
 C:\OptiTrackApp\OptiTrack.App\bin\Debug\net8.0-windows\OptiTrack.Data.dll
 C:\OptiTrackApp\OptiTrack.App\bin\Debug\net8.0-windows\OptiTrack.Data.pdb
+C:\OptiTrackApp\OptiTrack.App\obj\Debug\net8.0-windows\OptiTrack.App.csproj.AssemblyReference.cache
+C:\OptiTrackApp\OptiTrack.App\obj\Debug\net8.0-windows\UI\admin\adminDashboard.g.cs
+C:\OptiTrackApp\OptiTrack.App\obj\Debug\net8.0-windows\UI\employees\employeeDashboard.g.cs
+C:\OptiTrackApp\OptiTrack.App\obj\Debug\net8.0-windows\UI\general\LoginPage.g.cs
+C:\OptiTrackApp\OptiTrack.App\obj\Debug\net8.0-windows\App.g.cs
+C:\OptiTrackApp\OptiTrack.App\obj\Debug\net8.0-windows\OptiTrack.App_MarkupCompile.cache
+C:\OptiTrackApp\OptiTrack.App\obj\Debug\net8.0-windows\OptiTrack.App_MarkupCompile.lref
 C:\OptiTrackApp\OptiTrack.App\obj\Debug\net8.0-windows\UI\admin\adminDashboard.baml
 C:\OptiTrackApp\OptiTrack.App\obj\Debug\net8.0-windows\UI\employees\employeeDashboard.baml
 C:\OptiTrackApp\OptiTrack.App\obj\Debug\net8.0-windows\UI\general\LoginPage.baml
@@ -53,3 +53,7 @@ C:\OptiTrackApp\OptiTrack.App\obj\Debug\net8.0-windows\refint\OptiTrack.App.dll
 C:\OptiTrackApp\OptiTrack.App\obj\Debug\net8.0-windows\OptiTrack.App.pdb
 C:\OptiTrackApp\OptiTrack.App\obj\Debug\net8.0-windows\OptiTrack.App.genruntimeconfig.cache
 C:\OptiTrackApp\OptiTrack.App\obj\Debug\net8.0-windows\ref\OptiTrack.App.dll
+C:\OptiTrackApp\OptiTrack.App\bin\Debug\net8.0-windows\OptiTrack.Business.dll
+C:\OptiTrackApp\OptiTrack.App\bin\Debug\net8.0-windows\OptiTrack.Core.dll
+C:\OptiTrackApp\OptiTrack.App\bin\Debug\net8.0-windows\OptiTrack.Business.pdb
+C:\OptiTrackApp\OptiTrack.App\bin\Debug\net8.0-windows\OptiTrack.Core.pdb

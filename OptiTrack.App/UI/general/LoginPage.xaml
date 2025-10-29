@@ -127,14 +127,14 @@
             </StackPanel>
 
             <!-- Username Field -->
-            <TextBlock Text="Username" 
+            <TextBlock Text="Email" 
                        FontSize="13" 
                        Foreground="#2C3E50"
                        Margin="0,0,0,6"/>
 
-            <TextBox x:Name="UsernameTextBox"
+            <TextBox x:Name="EmailTextBox"
                      Style="{StaticResource ModernTextBox}"
-                     Margin="0,0,0,20" TextChanged="UsernameTextBox_TextChanged"/>
+                     Margin="0,0,0,20" TextChanged="EmailTextBox_TextChanged"/>
 
             <!-- Password Field -->
             <TextBlock Text="Password" 

@@ -1,0 +1,16 @@
+C:\OptiTrackApp\OptiTrack.Business\bin\Debug\net8.0\OptiTrack.Business.deps.json
+C:\OptiTrackApp\OptiTrack.Business\bin\Debug\net8.0\OptiTrack.Business.dll
+C:\OptiTrackApp\OptiTrack.Business\bin\Debug\net8.0\OptiTrack.Business.pdb
+C:\OptiTrackApp\OptiTrack.Business\obj\Debug\net8.0\OptiTrack.Business.GeneratedMSBuildEditorConfig.editorconfig
+C:\OptiTrackApp\OptiTrack.Business\obj\Debug\net8.0\OptiTrack.Business.AssemblyInfoInputs.cache
+C:\OptiTrackApp\OptiTrack.Business\obj\Debug\net8.0\OptiTrack.Business.AssemblyInfo.cs
+C:\OptiTrackApp\OptiTrack.Business\obj\Debug\net8.0\OptiTrack.Business.csproj.CoreCompileInputs.cache
+C:\OptiTrackApp\OptiTrack.Business\obj\Debug\net8.0\OptiTrack.Business.sourcelink.json
+C:\OptiTrackApp\OptiTrack.Business\obj\Debug\net8.0\OptiTrack.Business.dll
+C:\OptiTrackApp\OptiTrack.Business\obj\Debug\net8.0\refint\OptiTrack.Business.dll
+C:\OptiTrackApp\OptiTrack.Business\obj\Debug\net8.0\OptiTrack.Business.pdb
+C:\OptiTrackApp\OptiTrack.Business\obj\Debug\net8.0\ref\OptiTrack.Business.dll
+C:\OptiTrackApp\OptiTrack.Business\bin\Debug\net8.0\OptiTrack.Data.dll
+C:\OptiTrackApp\OptiTrack.Business\bin\Debug\net8.0\OptiTrack.Data.pdb
+C:\OptiTrackApp\OptiTrack.Business\obj\Debug\net8.0\OptiTrack.Business.csproj.AssemblyReference.cache
+C:\OptiTrackApp\OptiTrack.Business\obj\Debug\net8.0\OptiTrac.93CCC62D.Up2Date

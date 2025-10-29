@@ -800,6 +800,29 @@
           }
         }
       },
+      "OptiTrack.Business/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "OptiTrack.Data": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/OptiTrack.Business.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/OptiTrack.Business.dll": {}
+        }
+      },
+      "OptiTrack.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/OptiTrack.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/OptiTrack.Core.dll": {}
+        }
+      },
       "OptiTrack.Data/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
@@ -2428,6 +2451,16 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "OptiTrack.Business/1.0.0": {
+      "type": "project",
+      "path": "../OptiTrack.Business/OptiTrack.Business.csproj",
+      "msbuildProject": "../OptiTrack.Business/OptiTrack.Business.csproj"
+    },
+    "OptiTrack.Core/1.0.0": {
+      "type": "project",
+      "path": "../OptiTrack.Core/OptiTrack.Core.csproj",
+      "msbuildProject": "../OptiTrack.Core/OptiTrack.Core.csproj"
+    },
     "OptiTrack.Data/1.0.0": {
       "type": "project",
       "path": "../OptiTrack.Data/OptiTrack.Data.csproj",
@@ -2437,6 +2470,8 @@
   "projectFileDependencyGroups": {
     "net8.0-windows7.0": [
       "Mindbox.Data.Linq >= 10.7.2",
+      "OptiTrack.Business >= 1.0.0",
+      "OptiTrack.Core >= 1.0.0",
       "OptiTrack.Data >= 1.0.0"
     ]
   },
@@ -2472,6 +2507,12 @@
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "projectReferences": {
+            "C:\\OptiTrackApp\\OptiTrack.Business\\OptiTrack.Business.csproj": {
+              "projectPath": "C:\\OptiTrackApp\\OptiTrack.Business\\OptiTrack.Business.csproj"
+            },
+            "C:\\OptiTrackApp\\OptiTrack.Core\\OptiTrack.Core.csproj": {
+              "projectPath": "C:\\OptiTrackApp\\OptiTrack.Core\\OptiTrack.Core.csproj"
+            },
             "C:\\OptiTrackApp\\OptiTrack.Data\\OptiTrack.Data.csproj": {
               "projectPath": "C:\\OptiTrackApp\\OptiTrack.Data\\OptiTrack.Data.csproj"
             }

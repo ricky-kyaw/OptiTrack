@@ -53,7 +53,7 @@ namespace OptiTrack.App.UI.employees {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/OptiTrack.App;V1.0.0.0;component/ui/employees/employeedashboard.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/OptiTrack.App;component/ui/employees/employeedashboard.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\UI\employees\employeeDashboard.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
