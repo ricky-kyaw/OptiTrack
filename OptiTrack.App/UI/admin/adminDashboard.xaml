@@ -5,8 +5,472 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OptiTrack.App.UI.admin"
         mc:Ignorable="d"
-        Title="adminDashBoard" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="OptiTrack - Admin Dashboard" 
+        Height="900" 
+        Width="1600"
+        WindowStartupLocation="CenterScreen"
+        Background="#F8F9FA">
+
+    <Window.Resources>
+        <!-- Card Style -->
+        <Style x:Key="CardStyle" TargetType="Border">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="CornerRadius" Value="12"/>
+            <Setter Property="Padding" Value="24"/>
+            <Setter Property="Margin" Value="8"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect Color="#000000" Opacity="0.05" BlurRadius="10" ShadowDepth="2"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Primary Button Style -->
+        <Style x:Key="PrimaryButton" TargetType="Button">
+            <Setter Property="Background" Value="#2563EB"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="Medium"/>
+            <Setter Property="Padding" Value="20,12"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                                CornerRadius="8">
+                            <ContentPresenter HorizontalAlignment="Center" 
+                                            VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#1D4ED8"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!-- Secondary Button Style -->
+        <Style x:Key="SecondaryButton" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="#1F2937"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="Medium"/>
+            <Setter Property="Padding" Value="20,12"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                                CornerRadius="8">
+                            <ContentPresenter HorizontalAlignment="Center" 
+                                            VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#F3F4F6"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!-- Stat Card Style -->
+        <Style x:Key="StatCard" TargetType="Border">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="CornerRadius" Value="12"/>
+            <Setter Property="Padding" Value="20"/>
+            <Setter Property="Margin" Value="8"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect Color="#000000" Opacity="0.05" BlurRadius="10" ShadowDepth="2"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid Margin="40,30">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!-- Header Section -->
+            <Grid Grid.Row="0" Margin="0,0,0,30">
+                <StackPanel>
+                    <TextBlock FontSize="32" FontWeight="Bold" Foreground="#1F2937">
+            <Run Text="Welcome back! "/>
+            <Run Text="👋"/>
+                    </TextBlock>
+                    <TextBlock Text="Here's what's happening with your team today" 
+                   FontSize="16" 
+                   Foreground="#6B7280"
+                   Margin="0,4,0,0"/>
+                </StackPanel>
+
+                <StackPanel HorizontalAlignment="Right" VerticalAlignment="Top" Orientation="Horizontal">
+                    <StackPanel Margin="0,0,20,0">
+                        <TextBlock x:Name="TimeDisplay"
+                       Text="--:--:-- --" 
+                       FontSize="24" 
+                       FontWeight="Bold"
+                       Foreground="#2563EB"
+                       HorizontalAlignment="Right"/>
+                        <TextBlock x:Name="DateDisplay"
+                       Text="--/--/----" 
+                       FontSize="14" 
+                       Foreground="#6B7280"
+                       HorizontalAlignment="Right"
+                       Margin="0,2,0,0"/>
+                    </StackPanel>
+
+                    <!-- Logout Button -->
+                    <Button Content="Logout" 
+                        Click="Logout_Click"
+                        Background="Blue"
+                        Foreground="White"
+                        FontSize="14"
+                        FontWeight="Medium"
+                        Padding="20,10"
+                        BorderThickness="0"
+                        Cursor="Hand"
+                        VerticalAlignment="Center">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Background="{TemplateBinding Background}" 
+                            CornerRadius="5">
+                                    <ContentPresenter HorizontalAlignment="Center" 
+                                        VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="#EF4444"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#DC2626"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                </StackPanel>
+            </Grid>
+
+            <!-- Action Cards Grid -->
+            <UniformGrid Grid.Row="1" Columns="4" Margin="0,0,0,20">
+                <!-- Add Employee Card -->
+                <Border Style="{StaticResource CardStyle}">
+                    <StackPanel>
+                        <Grid Margin="0,0,0,16">
+                            <TextBlock Text="Add Employee" 
+                                       FontSize="16" 
+                                       FontWeight="SemiBold"
+                                       Foreground="#1F2937"/>
+                            <TextBlock Text="+" 
+                                       FontSize="20" 
+                                       HorizontalAlignment="Right"
+                                       Foreground="#6B7280"/>
+                        </Grid>
+                        <Button Content="Add New Employee" 
+                                Style="{StaticResource PrimaryButton}"
+                                HorizontalAlignment="Stretch"
+                                Click="AddEmployee_Click"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Employee Setup Card -->
+                <Border Style="{StaticResource CardStyle}">
+                    <StackPanel>
+                        <Grid Margin="0,0,0,16">
+                            <TextBlock Text="Employee Setup" 
+                                       FontSize="16" 
+                                       FontWeight="SemiBold"
+                                       Foreground="#1F2937"/>
+                            <TextBlock Text="👥" 
+                                       FontSize="18" 
+                                       HorizontalAlignment="Right"/>
+                        </Grid>
+                        <Button Content="Manage Setup" 
+                                Style="{StaticResource SecondaryButton}"
+                                HorizontalAlignment="Stretch"
+                                Click="ManageSetup_Click"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Punch Logs Card -->
+                <Border Style="{StaticResource CardStyle}">
+                    <StackPanel>
+                        <Grid Margin="0,0,0,16">
+                            <TextBlock Text="Punch Logs" 
+                                       FontSize="16" 
+                                       FontWeight="SemiBold"
+                                       Foreground="#1F2937"/>
+                            <TextBlock Text="📋" 
+                                       FontSize="18" 
+                                       HorizontalAlignment="Right"/>
+                        </Grid>
+                        <Button Content="View All Logs" 
+                                Style="{StaticResource SecondaryButton}"
+                                HorizontalAlignment="Stretch"
+                                Click="ViewLogs_Click"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Overtime Card -->
+                <Border Style="{StaticResource CardStyle}">
+                    <StackPanel>
+                        <Grid Margin="0,0,0,16">
+                            <TextBlock Text="Overtime" 
+                                       FontSize="16" 
+                                       FontWeight="SemiBold"
+                                       Foreground="#1F2937"/>
+                            <TextBlock Text="🕐" 
+                                       FontSize="18" 
+                                       HorizontalAlignment="Right"/>
+                        </Grid>
+                        <Button Content="Manage Overtime" 
+                                Style="{StaticResource SecondaryButton}"
+                                HorizontalAlignment="Stretch"
+                                Click="ManageOvertime_Click"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- View Reports Card -->
+                <Border Style="{StaticResource CardStyle}">
+                    <StackPanel>
+                        <Grid Margin="0,0,0,16">
+                            <TextBlock Text="View Reports" 
+                                       FontSize="16" 
+                                       FontWeight="SemiBold"
+                                       Foreground="#1F2937"/>
+                            <TextBlock Text="📊" 
+                                       FontSize="18" 
+                                       HorizontalAlignment="Right"/>
+                        </Grid>
+                        <Button Content="Generate Reports" 
+                                Style="{StaticResource SecondaryButton}"
+                                HorizontalAlignment="Stretch"
+                                Click="GenerateReports_Click"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Manage Employees Card -->
+                <Border Style="{StaticResource CardStyle}">
+                    <StackPanel>
+                        <Grid Margin="0,0,0,16">
+                            <TextBlock Text="Manage Employees" 
+                                       FontSize="16" 
+                                       FontWeight="SemiBold"
+                                       Foreground="#1F2937"/>
+                            <TextBlock Text="👥" 
+                                       FontSize="18" 
+                                       HorizontalAlignment="Right"/>
+                        </Grid>
+                        <Button Content="View All Employees" 
+                                Style="{StaticResource SecondaryButton}"
+                                HorizontalAlignment="Stretch"
+                                Click="ViewEmployees_Click"/>
+                    </StackPanel>
+                </Border>
+            </UniformGrid>
+
+            <!-- Statistics Cards -->
+            <UniformGrid Grid.Row="2" Columns="6" Margin="0,0,0,30">
+                <!-- Total Employees -->
+                <Border Style="{StaticResource StatCard}">
+                    <StackPanel>
+                        <Grid Margin="0,0,0,12">
+                            <TextBlock Text="Total Employees" 
+                                       FontSize="13" 
+                                       Foreground="#6B7280"/>
+                            <TextBlock Text="👥" 
+                                       FontSize="16" 
+                                       HorizontalAlignment="Right"/>
+                        </Grid>
+                        <TextBlock x:Name="TotalEmployeesCount"
+                                   Text="0" 
+                                   FontSize="32" 
+                                   FontWeight="Bold"
+                                   Foreground="#1F2937"/>
+                        <TextBlock Text="Active employees" 
+                                   FontSize="12" 
+                                   Foreground="#9CA3AF"
+                                   Margin="0,4,0,0"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Clocked In -->
+                <Border Style="{StaticResource StatCard}">
+                    <StackPanel>
+                        <Grid Margin="0,0,0,12">
+                            <TextBlock Text="Clocked In" 
+                                       FontSize="13" 
+                                       Foreground="#6B7280"/>
+                            <TextBlock Text="✓" 
+                                       FontSize="16" 
+                                       Foreground="#10B981"
+                                       HorizontalAlignment="Right"/>
+                        </Grid>
+                        <TextBlock x:Name="ClockedInCount"
+                                   Text="0" 
+                                   FontSize="32" 
+                                   FontWeight="Bold"
+                                   Foreground="#10B981"/>
+                        <TextBlock Text="Currently working" 
+                                   FontSize="12" 
+                                   Foreground="#9CA3AF"
+                                   Margin="0,4,0,0"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Clocked Out -->
+                <Border Style="{StaticResource StatCard}">
+                    <StackPanel>
+                        <Grid Margin="0,0,0,12">
+                            <TextBlock Text="Clocked Out" 
+                                       FontSize="13" 
+                                       Foreground="#6B7280"/>
+                            <TextBlock Text="✗" 
+                                       FontSize="16" 
+                                       Foreground="#EF4444"
+                                       HorizontalAlignment="Right"/>
+                        </Grid>
+                        <TextBlock x:Name="ClockedOutCount"
+                                   Text="0" 
+                                   FontSize="32" 
+                                   FontWeight="Bold"
+                                   Foreground="#EF4444"/>
+                        <TextBlock Text="Not working" 
+                                   FontSize="12" 
+                                   Foreground="#9CA3AF"
+                                   Margin="0,4,0,0"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Today's Punches -->
+                <Border Style="{StaticResource StatCard}">
+                    <StackPanel>
+                        <Grid Margin="0,0,0,12">
+                            <TextBlock Text="Today's Punches" 
+                                       FontSize="13" 
+                                       Foreground="#6B7280"/>
+                            <TextBlock Text="📄" 
+                                       FontSize="16" 
+                                       HorizontalAlignment="Right"/>
+                        </Grid>
+                        <TextBlock x:Name="TodayPunchesCount"
+                                   Text="0" 
+                                   FontSize="32" 
+                                   FontWeight="Bold"
+                                   Foreground="#1F2937"/>
+                        <TextBlock Text="Total punch events" 
+                                   FontSize="12" 
+                                   Foreground="#9CA3AF"
+                                   Margin="0,4,0,0"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Overtime Hours -->
+                <Border Style="{StaticResource StatCard}">
+                    <StackPanel>
+                        <Grid Margin="0,0,0,12">
+                            <TextBlock Text="Overtime Hours" 
+                                       FontSize="13" 
+                                       Foreground="#6B7280"/>
+                            <TextBlock Text="🕐" 
+                                       FontSize="16" 
+                                       Foreground="#F59E0B"
+                                       HorizontalAlignment="Right"/>
+                        </Grid>
+                        <TextBlock x:Name="OvertimeHours"
+                                   Text="0" 
+                                   FontSize="32" 
+                                   FontWeight="Bold"
+                                   Foreground="#F59E0B"/>
+                        <TextBlock Text="This week" 
+                                   FontSize="12" 
+                                   Foreground="#9CA3AF"
+                                   Margin="0,4,0,0"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Overtime Pay -->
+                <Border Style="{StaticResource StatCard}">
+                    <StackPanel>
+                        <Grid Margin="0,0,0,12">
+                            <TextBlock Text="Overtime Pay" 
+                                       FontSize="13" 
+                                       Foreground="#6B7280"/>
+                            <TextBlock Text="💲" 
+                                       FontSize="16" 
+                                       Foreground="#10B981"
+                                       HorizontalAlignment="Right"/>
+                        </Grid>
+                        <TextBlock x:Name="OvertimePay"
+                                   Text="$0" 
+                                   FontSize="32" 
+                                   FontWeight="Bold"
+                                   Foreground="#10B981"/>
+                        <TextBlock Text="Additional compensation" 
+                                   FontSize="12" 
+                                   Foreground="#9CA3AF"
+                                   Margin="0,4,0,0"/>
+                    </StackPanel>
+                </Border>
+            </UniformGrid>
+
+            <!-- Recent Activity Section -->
+            <Border Grid.Row="3" Style="{StaticResource CardStyle}">
+                <StackPanel>
+                    <Grid Margin="0,0,0,20">
+                        <StackPanel>
+                            <TextBlock Text="Recent Activity" 
+                                       FontSize="20" 
+                                       FontWeight="Bold"
+                                       Foreground="#1F2937"/>
+                            <TextBlock Text="Latest clock in/out events" 
+                                       FontSize="14" 
+                                       Foreground="#6B7280"
+                                       Margin="0,4,0,0"/>
+                        </StackPanel>
+                        <TextBlock HorizontalAlignment="Right" 
+                                   VerticalAlignment="Center">
+                            <Hyperlink Foreground="#2563EB" 
+                                      TextDecorations="None"
+                                      FontSize="14"
+                                      FontWeight="Medium"
+                                      Click="ViewAllLogs_Click">
+                                View All Logs
+                            </Hyperlink>
+                        </TextBlock>
+                    </Grid>
+                    
+
+                    <!-- Empty State -->
+                    <StackPanel x:Name="ActivityList" 
+                                HorizontalAlignment="Center"
+                                Margin="0,40,0,40">
+                        <TextBlock Text="No recent activity" 
+                                   FontSize="16" 
+                                   Foreground="#9CA3AF"
+                                   HorizontalAlignment="Center"/>
+                        <TextBlock Text="Activity will appear here when employees clock in or out" 
+                                   FontSize="13" 
+                                   Foreground="#D1D5DB"
+                                   HorizontalAlignment="Center"
+                                   Margin="0,8,0,0"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </Grid>
+    </ScrollViewer>
 </Window>

@@ -70,10 +70,12 @@ namespace OptiTrack.App.UI.general
             // 2️⃣ Open dashboard based on role
             if (_roleAuth.HasRole(user.AppUserID, "Admin"))
             {
-               new adminDashBoard().ShowDialog();
+                this.Hide();
+                new adminDashBoard().ShowDialog();
             }
             else if (_roleAuth.HasRole(user.AppUserID, "Employee"))
             {
+                this.Hide();
                 new employeeDashboard().ShowDialog();
             }
             else
