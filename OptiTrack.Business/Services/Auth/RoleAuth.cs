@@ -1,29 +1,32 @@
 ﻿using OptiTrack.Data.DBConnector;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OptiTrack.Business.Services.Auth
 {
     public class RoleAuth
     {
-        private readonly TableModelsConnector _connector;
+        private readonly ViewModelsConnector _vConnector;
 
         public RoleAuth()
         {
-            _connector = new TableModelsConnector();
+            _vConnector = new ViewModelsConnector();
         }
 
+        /// <summary>
+        /// Checks if a user has a specific role.
+        /// </summary>
         public bool HasRole(Guid appUserId, string requiredRole)
         {
-            return _connector.UserHasRole(appUserId, requiredRole);
+            return _vConnector.UserHasRole(appUserId, requiredRole);
         }
 
+        /// <summary>
+        /// Returns all roles assigned to a user.
+        /// </summary>
         public List<string> GetRoles(Guid appUserId)
         {
-            return _connector.GetRolesForUser(appUserId);
+            return _vConnector.GetRolesForUser(appUserId);
         }
     }
 }

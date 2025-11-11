@@ -57,9 +57,9 @@ namespace OptiTrack.App.UI.admin
 
         private void Logout_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
-            LoginPage loginPage = new LoginPage();
+            var loginPage = new LoginPage();
             loginPage.Show();
+            this.Close();
         }
 
         private void ViewAllLogs_Click(object sender, RoutedEventArgs e)

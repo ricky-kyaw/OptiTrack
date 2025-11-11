@@ -5,7 +5,13 @@
     <Compile Update="UI\admin\adminDashBoard.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="UI\employees\employeeDashboard.xaml.cs">
+    <Compile Update="UI\ctrls\ClockIn.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UI\ctrls\ClockOut.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UI\employees\EmployeeDashboard.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="UI\general\LoginPage.xaml.cs">

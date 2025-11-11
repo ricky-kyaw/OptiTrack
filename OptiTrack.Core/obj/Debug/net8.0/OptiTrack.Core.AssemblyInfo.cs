@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("OptiTrack.Core")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e01bc59054e94a8473cd0a32438c2ec0f973792f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+372aa148e660c9c3a81775b06b1975eda19b1e7f")]
 [assembly: System.Reflection.AssemblyProductAttribute("OptiTrack.Core")]
 [assembly: System.Reflection.AssemblyTitleAttribute("OptiTrack.Core")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

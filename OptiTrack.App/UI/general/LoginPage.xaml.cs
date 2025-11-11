@@ -1,20 +1,11 @@
 ﻿using OptiTrack.App.UI.admin;
 using OptiTrack.App.UI.employees;
 using OptiTrack.Business.Services.Auth;
-using OptiTrack.Data.DBConnector;
+using OptiTrack.Data.DBMLs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace OptiTrack.App.UI.general
 {
@@ -23,7 +14,7 @@ namespace OptiTrack.App.UI.general
         private readonly LoginAuth _loginAuth;
         private readonly RoleAuth _roleAuth;
 
-        private string selectedAccountType = "Employee"; // default
+        private string selectedAccountType = "Employee"; // Default role selection
 
         public LoginPage()
         {
@@ -32,7 +23,6 @@ namespace OptiTrack.App.UI.general
             _roleAuth = new RoleAuth();
         }
 
-        // Account type radio button handlers
         private void EmployeeRadioButton_Checked(object sender, RoutedEventArgs e)
         {
             selectedAccountType = "Employee";
@@ -49,53 +39,65 @@ namespace OptiTrack.App.UI.general
             string password = PasswordBox.Password;
             List<string> roles;
 
-            // 1️⃣ Authenticate user
+            // Authenticate user → returns vw_AppUserWithRole
             var user = _loginAuth.Authenticate(email, password, out roles);
 
             if (user == null)
             {
-                MessageBox.Show("Invalid email or password.", "Login Failed", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Invalid email or password.", "Login Failed",
+                                MessageBoxButton.OK, MessageBoxImage.Warning);
                 PasswordBox.Clear();
                 return;
             }
 
-            // Optional: check if user has selected correct account type
+            // Ensure user matches selected account type (Employee/Admin)
             if (!roles.Contains(selectedAccountType))
             {
-                MessageBox.Show($"Your account is not registered as {selectedAccountType}.", "Access Denied", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show($"Your account is not registered as {selectedAccountType}.",
+                                "Access Denied",
+                                MessageBoxButton.OK, MessageBoxImage.Warning);
                 PasswordBox.Clear();
                 return;
             }
 
-            // 2️⃣ Open dashboard based on role
+            // Route to dashboard based on role
             if (_roleAuth.HasRole(user.AppUserID, "Admin"))
             {
-                this.Hide();
-                new adminDashBoard().ShowDialog();
+                var dashboard = new adminDashBoard();
+                dashboard.Show();
+                this.Close();
             }
             else if (_roleAuth.HasRole(user.AppUserID, "Employee"))
             {
-                this.Hide();
-                new employeeDashboard().ShowDialog();
+                var dashboard = new EmployeeDashboard(
+                    user,                                      // ✅ Pass vw_AppUserWithRole
+                    $"{user.FirstName} {user.LastName}",       // ✅ Employee Full Name
+                    user.DepartmentName,                      // ✅ Department from updated view
+                    "Employee"                                 // ✅ Role
+                );
+
+                dashboard.Show();
+                this.Close();
             }
             else
             {
-                MessageBox.Show("No role assigned. Access denied.", "Login Failed", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("No assigned system role. Access denied.",
+                                "Login Failed", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
 
-            // Clear password after login attempt
             PasswordBox.Clear();
         }
 
         private void ForgotPassword_Click(object sender, RoutedEventArgs e)
         {
-            // TODO: implement password reset
-            MessageBox.Show("Forgot password functionality is not implemented yet.", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+            MessageBox.Show("Forgot password feature is not implemented yet.",
+                            "Info",
+                            MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private void EmailTextBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
-            // Optional: you can validate email format here
+
         }
     }
 }

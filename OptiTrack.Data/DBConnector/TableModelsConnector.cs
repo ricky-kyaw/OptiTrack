@@ -1,51 +1,71 @@
 ﻿using OptiTrack.Data.DBMLs;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace OptiTrack.Data.DBConnector
 {
     public class TableModelsConnector
     {
-        TableModelsDataContext dataContext;
+        private TableModelsDataContext dataContext;
 
+        /// <summary>
+        /// Provides access to the single, long-lived DataContext instance.
+        /// WARNING: This approach can lead to concurrency issues in multi-threaded environments.
+        /// </summary>
         public TableModelsDataContext dataContextCaller
         {
             get
             {
                 if (dataContext == null)
                 {
+                    // This assumes Properties.Resources.connectionString is a static resource containing the SQL connection string.
                     dataContext = new TableModelsDataContext(Properties.Resources.connectionString);
                 }
                 return dataContext;
             }
         }
-        public AppUser GetUserByEmail(string email)
-        {
-            // Join Employees → AppUsers using EmployeeID
-            var query = from emp in dataContextCaller.Employees
-                        join au in dataContextCaller.AppUsers
-                            on emp.EmployeeID equals au.EmployeeID
-                        where emp.Email == email
-                        select au;
 
-            return query.FirstOrDefault();
-        }
-        public List<string> GetRolesForUser(Guid appUserId)
+        // --- ATTENDANCE METHODS ---
+
+        /// <summary>
+        /// Retrieves the single open attendance record for an employee (ClockOutTime is NULL).
+        /// </summary>
+        public Attendance GetOpenAttendanceRecord(Guid employeeId)
         {
-            return (from aur in dataContextCaller.AppUserRoles
-                    join r in dataContextCaller.Roles
-                        on aur.RoleID equals r.RoleID
-                    where aur.AppUserID == appUserId
-                    select r.RoleName).ToList();
+            // Use the established dataContextCaller property
+            return dataContextCaller.Attendances
+                                    .FirstOrDefault(a => a.EmployeeID == employeeId && a.ClockOutTime == null);
         }
-        public bool UserHasRole(Guid appUserId, string requiredRole)
+
+        /// <summary>
+        /// Adds a new Attendance record (Clock In).
+        /// </summary>
+        public void AddAttendanceRecord(Attendance record)
         {
-            return GetRolesForUser(appUserId)
-                .Any(r => r.Equals(requiredRole, StringComparison.OrdinalIgnoreCase));
+            dataContextCaller.Attendances.InsertOnSubmit(record);
+            dataContextCaller.SubmitChanges();
         }
+
+        /// <summary>
+        /// Updates an existing Attendance record (Clock Out).
+        /// </summary>
+        public void UpdateAttendanceRecord(Attendance record)
+        {
+            // IMPORTANT: Because the DataContext is persistent, we rely on the object passed
+            // to this method (the 'record') being the same instance tracked by the DataContext,
+            // or we must manually attach it.
+
+            // To be safe in this pattern, we must ensure LINQ to SQL is tracking the changes
+            // and the object isn't stale. Since we assume the record was retrieved via
+            // GetOpenAttendanceRecord from this same DataContext, we proceed to submit changes.
+
+            // If the object was retrieved and modified elsewhere, you would need to use 
+            // dataContextCaller.Attendances.Attach(record, true/false) and then SubmitChanges().
+
+            dataContextCaller.SubmitChanges();
+        }
+
+        // --- Other necessary methods (E.g., for AppUser CRUD) would go here ---
     }
 }
-

@@ -2,24 +2,63 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OptiTrack.Data.DBConnector
 {
+    /// <summary>
+    /// Provides data access methods specifically using View Models from the DBML.
+    /// Uses the recommended pattern of creating and disposing the DataContext per method call
+    /// for thread safety and connection efficiency.
+    /// </summary>
     public sealed class ViewModelsConnector
     {
-        ViewModelsDataContext dataContext;
+        // Private property to simplify connection string access
+        private static string ConnectionString => Properties.Resources.connectionString;
 
-        public ViewModelsDataContext dataContextCaller
+        /// <summary>
+        /// Retrieves the complete user and role data for authentication based on email.
+        /// </summary>
+        /// <param name="email">The email address of the user.</param>
+        /// <returns>The user's view model data, or null if not found.</returns>
+        public vw_AppUserWithRole GetUserByEmail(string email)
         {
-            get
+            using (var dataContext = new ViewModelsDataContext(ConnectionString))
             {
-                if (dataContext == null)
-                {
-                    dataContext = new ViewModelsDataContext(Properties.Resources.connectionString);
-                }
-                return dataContext;
+                return dataContext.vw_AppUserWithRoles
+                                  .FirstOrDefault(u => u.Email == email);
+            }
+        }
+
+        /// <summary>
+        /// Checks if a specified user has a required role name.
+        /// </summary>
+        /// <param name="appUserId">The ID of the application user (GUID).</param>
+        /// <param name="requiredRole">The role name to check.</param>
+        /// <returns>True if the user has the role, otherwise False.</returns>
+        public bool UserHasRole(Guid appUserId, string requiredRole)
+        {
+            using (var dataContext = new ViewModelsDataContext(ConnectionString))
+            {
+                return dataContext.vw_AppUserWithRoles
+                                  .Any(u => u.AppUserID == appUserId &&
+                                            u.RoleName.Equals(requiredRole));
+            }
+        }
+
+        /// <summary>
+        /// Retrieves a list of all role names associated with a user.
+        /// </summary>
+        /// <param name="appUserId">The ID of the application user (GUID).</param>
+        /// <returns>A list of unique role names.</returns>
+        public List<string> GetRolesForUser(Guid appUserId)
+        {
+            using (var dataContext = new ViewModelsDataContext(ConnectionString))
+            {
+                return dataContext.vw_AppUserWithRoles
+                                  .Where(u => u.AppUserID == appUserId)
+                                  .Select(u => u.RoleName)
+                                  .Distinct()
+                                  .ToList();
             }
         }
     }
