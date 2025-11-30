@@ -2,6 +2,7 @@
 using System;
 using System.Linq;
 using System.Collections.Generic;
+using System.Data.Linq;
 
 namespace OptiTrack.Data.DBConnector
 {
@@ -10,8 +11,7 @@ namespace OptiTrack.Data.DBConnector
         private TableModelsDataContext dataContext;
 
         /// <summary>
-        /// Provides access to the single, long-lived DataContext instance.
-        /// WARNING: This approach can lead to concurrency issues in multi-threaded environments.
+        /// Provides access to the single, long-lived DataContext instance (per user preference).
         /// </summary>
         public TableModelsDataContext dataContextCaller
         {
@@ -19,7 +19,6 @@ namespace OptiTrack.Data.DBConnector
             {
                 if (dataContext == null)
                 {
-                    // This assumes Properties.Resources.connectionString is a static resource containing the SQL connection string.
                     dataContext = new TableModelsDataContext(Properties.Resources.connectionString);
                 }
                 return dataContext;
@@ -28,44 +27,88 @@ namespace OptiTrack.Data.DBConnector
 
         // --- ATTENDANCE METHODS ---
 
-        /// <summary>
-        /// Retrieves the single open attendance record for an employee (ClockOutTime is NULL).
-        /// </summary>
         public Attendance GetOpenAttendanceRecord(Guid employeeId)
         {
-            // Use the established dataContextCaller property
             return dataContextCaller.Attendances
                                     .FirstOrDefault(a => a.EmployeeID == employeeId && a.ClockOutTime == null);
         }
 
-        /// <summary>
-        /// Adds a new Attendance record (Clock In).
-        /// </summary>
         public void AddAttendanceRecord(Attendance record)
         {
             dataContextCaller.Attendances.InsertOnSubmit(record);
             dataContextCaller.SubmitChanges();
         }
 
-        /// <summary>
-        /// Updates an existing Attendance record (Clock Out).
-        /// </summary>
         public void UpdateAttendanceRecord(Attendance record)
         {
-            // IMPORTANT: Because the DataContext is persistent, we rely on the object passed
-            // to this method (the 'record') being the same instance tracked by the DataContext,
-            // or we must manually attach it.
-
-            // To be safe in this pattern, we must ensure LINQ to SQL is tracking the changes
-            // and the object isn't stale. Since we assume the record was retrieved via
-            // GetOpenAttendanceRecord from this same DataContext, we proceed to submit changes.
-
-            // If the object was retrieved and modified elsewhere, you would need to use 
-            // dataContextCaller.Attendances.Attach(record, true/false) and then SubmitChanges().
-
             dataContextCaller.SubmitChanges();
         }
 
-        // --- Other necessary methods (E.g., for AppUser CRUD) would go here ---
+
+        // --- EMPLOYEE MANAGEMENT METHOD (ADD/CREATE) ---
+
+        public void AddEmployeeAccount(Employee employee, AppUser appUser, string roleName)
+        {
+            var role = dataContextCaller.Roles.FirstOrDefault(r => r.RoleName == roleName);
+            if (role == null)
+            {
+                throw new InvalidOperationException($"Role '{roleName}' not found in the database. Cannot assign user.");
+            }
+
+            var appUserRole = new AppUserRole
+            {
+                AppUserID = appUser.AppUserID,
+                RoleID = role.RoleID
+            };
+
+            dataContextCaller.AppUsers.InsertOnSubmit(appUser);
+            dataContextCaller.Employees.InsertOnSubmit(employee);
+            dataContextCaller.AppUserRoles.InsertOnSubmit(appUserRole);
+
+            try
+            {
+                dataContextCaller.SubmitChanges();
+            }
+            catch (ChangeConflictException)
+            {
+                throw new InvalidOperationException("Concurrency conflict occurred during employee creation. Please try again.");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Database error during employee creation. Check for duplicate email or invalid FKs.", ex);
+            }
+        }
+
+        // --- DASHBOARD STATISTICS METHODS ---
+
+        /// <summary>
+        /// Retrieves the total number of active employee records.
+        /// FIX: Rewritten using method-chaining to explicitly join AppUsers and safely check AppUser.IsActive.
+        /// </summary>
+        public int GetTotalEmployeesCount()
+        {
+            // Assuming the table collection is named 'Employees' and the class is 'Employee' (standard behavior).
+            // We join Employees (e) and AppUsers (au) and filter the result on the AppUser's IsActive property.
+            return dataContextCaller.Employees
+                .Join(dataContextCaller.AppUsers,
+                    e => e.AppUserID,
+                    au => au.AppUserID,
+                    (e, au) => new { Employee = e, AppUser = au })
+                .Count(j => j.AppUser.IsActive == true);
+        }
+
+        /// <summary>
+        /// Retrieves the count of current open shifts (employees clocked in).
+        /// </summary>
+        public int GetClockedInCount()
+        {
+            // Count Attendance records where ClockOutTime is NULL
+            return dataContextCaller.Attendances.Count(a => a.ClockOutTime == null);
+        }
+        public TableModelsDataContext GetContext()
+        {
+            return new TableModelsDataContext(Config.ConnectionString);
+        }
+
     }
 }

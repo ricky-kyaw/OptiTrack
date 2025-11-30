@@ -26,12 +26,6 @@
         <elementListCompartment Id="8a6c9420-5277-4a96-be7d-a8356651c529" absoluteBounds="0.765, 6.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="9db6fad7-79c9-4d15-bd52-9092421be649" absoluteBounds="3.5, 5, 2, 3.3093082682291666">
-      <DataClassMoniker Name="/TableModelsDataContext/Employee" />
-      <nestedChildShapes>
-        <elementListCompartment Id="059f0a7e-f2cf-4ea5-84ac-8e0e59c7a5b5" absoluteBounds="3.515, 5.46, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
     <classShape Id="38ebd296-6798-47b1-9027-cefb66567d58" absoluteBounds="0.75, 4, 2, 1.1939925130208344">
       <DataClassMoniker Name="/TableModelsDataContext/JobTitle" />
       <nestedChildShapes>
@@ -75,88 +69,73 @@
         <classShapeMoniker Id="90ec585e-d382-4bf9-b3f2-b7e4bef38d9f" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 5.29409912109375); (6.25 : 5.29409912109375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/TableModelsDataContext/Employee/Employee_AppUser" />
-      <nodes>
-        <classShapeMoniker Id="9db6fad7-79c9-4d15-bd52-9092421be649" />
-        <classShapeMoniker Id="2fe00f9d-7ce0-4250-bd89-e7e2a75f09fb" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(4.5 : 5); (4.5 : 2.16429768880208); (6.25 : 2.16429768880208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/TableModelsDataContext/Employee/Employee_Attendance" />
-      <nodes>
-        <classShapeMoniker Id="9db6fad7-79c9-4d15-bd52-9092421be649" />
-        <classShapeMoniker Id="2f46ef10-5dcf-4387-9175-7ac0466a0b7d" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 6.59699625651042); (3.5 : 6.59699625651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/TableModelsDataContext/Department/Department_Employee" />
-      <nodes>
-        <classShapeMoniker Id="171c4e84-65b2-4535-842d-d8541b5a7b15" />
-        <classShapeMoniker Id="9db6fad7-79c9-4d15-bd52-9092421be649" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(4.20923076923077 : 8.30930826822917); (4.20923076923077 : 8.55930826822917); (4.42358974358974 : 8.55930826822917 : JumpStart); (4.59025641025641 : 8.55930826822917 : JumpEnd); (4.80461538461538 : 8.55930826822917); (4.80461538461538 : 8.30930826822917)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/TableModelsDataContext/Employee/Employee_Employee" />
-      <nodes>
-        <classShapeMoniker Id="9db6fad7-79c9-4d15-bd52-9092421be649" />
-        <classShapeMoniker Id="9db6fad7-79c9-4d15-bd52-9092421be649" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(6.25 : 5.08454956054688); (5.5 : 5.08454956054688)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/TableModelsDataContext/AppUser/AppUser_Employee" />
-      <nodes>
-        <classShapeMoniker Id="2fe00f9d-7ce0-4250-bd89-e7e2a75f09fb" />
-        <classShapeMoniker Id="9db6fad7-79c9-4d15-bd52-9092421be649" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 4.4687475); (3.9687475 : 4.4687475); (3.9687475 : 5)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/TableModelsDataContext/JobTitle/JobTitle_Employee" />
-      <nodes>
-        <classShapeMoniker Id="38ebd296-6798-47b1-9027-cefb66567d58" />
-        <classShapeMoniker Id="9db6fad7-79c9-4d15-bd52-9092421be649" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 7.34215413411458); (6.25 : 7.34215413411458)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/TableModelsDataContext/Employee/Employee_OvertimeRequest" />
-      <nodes>
-        <classShapeMoniker Id="9db6fad7-79c9-4d15-bd52-9092421be649" />
-        <classShapeMoniker Id="0d0b241b-78ea-40b7-be66-da1a35bc33a8" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 6.79607706705729); (6.25 : 6.79607706705729)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/TableModelsDataContext/Employee/Employee_OvertimeRequest1" />
-      <nodes>
-        <classShapeMoniker Id="9db6fad7-79c9-4d15-bd52-9092421be649" />
-        <classShapeMoniker Id="0d0b241b-78ea-40b7-be66-da1a35bc33a8" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(7.25 : 9.82294840494792); (8.375 : 9.82294840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(7.25 : 9.82294840494792); (8.375 : 9.82294840494792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/TableModelsDataContext/Payslip/Payslip_PayslipDetail" />
       <nodes>
         <classShapeMoniker Id="39669ff9-0d38-4ea1-a83c-7e8feb309e51" />
         <classShapeMoniker Id="dee01586-ca48-4652-98f0-fc78423a523f" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(3.82336288461538 : 8.30930826822917); (3.82336288461538 : 10.1739005533854); (5.25 : 10.1739005533854)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/TableModelsDataContext/Employee/Employee_Payslip" />
-      <nodes>
-        <classShapeMoniker Id="9db6fad7-79c9-4d15-bd52-9092421be649" />
-        <classShapeMoniker Id="39669ff9-0d38-4ea1-a83c-7e8feb309e51" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 8.74840413411458); (3.74002955128205 : 8.74840413411458 : JumpStart); (3.90669621794872 : 8.74840413411458 : JumpEnd); (4.50692307692308 : 8.74840413411458); (4.50692307692308 : 8.30930826822917)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/TableModelsDataContext/PayType/PayType_Employee" />
-      <nodes>
-        <classShapeMoniker Id="f82f49e3-4b22-4470-a64b-12300ad197d9" />
-        <classShapeMoniker Id="9db6fad7-79c9-4d15-bd52-9092421be649" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(10.5 : 6.875); (10.5 : 5.31899251302083)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(10.5 : 6.875); (10.5 : 5.31899251302083)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/TableModelsDataContext/Role/Role_AppUserRole" />
       <nodes>
         <classShapeMoniker Id="fe9d888f-67f0-4841-9254-a26854b47a22" />
         <classShapeMoniker Id="90ec585e-d382-4bf9-b3f2-b7e4bef38d9f" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="98978b5e-c7fe-448a-be27-2bfa569f7899" absoluteBounds="3.5, 4.125, 2, 3.3093082682291666">
+      <DataClassMoniker Name="/TableModelsDataContext/Employee" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a765d9a4-5990-4fae-bd05-823f8d01601f" absoluteBounds="3.515, 4.585, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.5 : 4.85659912109375); (6.25 : 4.85659912109375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/TableModelsDataContext/Employee/Employee_AppUser" />
+      <nodes>
+        <classShapeMoniker Id="98978b5e-c7fe-448a-be27-2bfa569f7899" />
+        <classShapeMoniker Id="2fe00f9d-7ce0-4250-bd89-e7e2a75f09fb" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.5 : 4.125); (4.5 : 2.16429768880208); (6.25 : 2.16429768880208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/TableModelsDataContext/Employee/Employee_Attendance" />
+      <nodes>
+        <classShapeMoniker Id="98978b5e-c7fe-448a-be27-2bfa569f7899" />
+        <classShapeMoniker Id="2f46ef10-5dcf-4387-9175-7ac0466a0b7d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 6.57732706705729); (6.25 : 6.57732706705729)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/TableModelsDataContext/Employee/Employee_OvertimeRequest1" />
+      <nodes>
+        <classShapeMoniker Id="98978b5e-c7fe-448a-be27-2bfa569f7899" />
+        <classShapeMoniker Id="0d0b241b-78ea-40b7-be66-da1a35bc33a8" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.3749995 : 7.43430826822917); (4.3749995 : 10.1739005533854); (5.25 : 10.1739005533854)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/TableModelsDataContext/Employee/Employee_Payslip" />
+      <nodes>
+        <classShapeMoniker Id="98978b5e-c7fe-448a-be27-2bfa569f7899" />
+        <classShapeMoniker Id="39669ff9-0d38-4ea1-a83c-7e8feb309e51" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 6.59699625651042); (3.5 : 6.59699625651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/TableModelsDataContext/Department/Department_Employee" />
+      <nodes>
+        <classShapeMoniker Id="171c4e84-65b2-4535-842d-d8541b5a7b15" />
+        <classShapeMoniker Id="98978b5e-c7fe-448a-be27-2bfa569f7899" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 4.65949625651042); (3.5 : 4.65949625651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/TableModelsDataContext/JobTitle/JobTitle_Employee" />
+      <nodes>
+        <classShapeMoniker Id="38ebd296-6798-47b1-9027-cefb66567d58" />
+        <classShapeMoniker Id="98978b5e-c7fe-448a-be27-2bfa569f7899" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 8.46875); (3.82336288461538 : 8.46875); (3.82336288461538 : 7.43430826822917)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/TableModelsDataContext/PayType/PayType_Employee" />
+      <nodes>
+        <classShapeMoniker Id="f82f49e3-4b22-4470-a64b-12300ad197d9" />
+        <classShapeMoniker Id="98978b5e-c7fe-448a-be27-2bfa569f7899" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>

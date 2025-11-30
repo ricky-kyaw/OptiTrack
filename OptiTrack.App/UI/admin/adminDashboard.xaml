@@ -134,12 +134,12 @@
                     <!-- Logout Button -->
                     <Button Content="Logout" 
                         Click="Logout_Click"
-                        Background="Blue"
-                        Foreground="White"
-                        FontSize="14"
-                        FontWeight="Medium"
-                        Padding="20,10"
-                        BorderThickness="0"
+                        Background="Transparent"
+                        Foreground="#666666"
+                        BorderThickness="1"
+                        BorderBrush="#CCCCCC"
+                        Padding="16,8"
+                        FontSize="13"
                         Cursor="Hand"
                         VerticalAlignment="Center">
                         <Button.Template>

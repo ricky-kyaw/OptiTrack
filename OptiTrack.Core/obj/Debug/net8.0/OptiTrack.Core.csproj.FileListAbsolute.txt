@@ -1,5 +1,5 @@
-C:\OptiTrackApp\OptiTrack.Core\bin\Debug\net8.0\OptiTrack.Core.deps.json
 C:\OptiTrackApp\OptiTrack.Core\bin\Debug\net8.0\OptiTrack.Core.dll
+C:\OptiTrackApp\OptiTrack.Core\bin\Debug\net8.0\OptiTrack.Core.deps.json
 C:\OptiTrackApp\OptiTrack.Core\bin\Debug\net8.0\OptiTrack.Core.pdb
 C:\OptiTrackApp\OptiTrack.Core\obj\Debug\net8.0\OptiTrack.Core.GeneratedMSBuildEditorConfig.editorconfig
 C:\OptiTrackApp\OptiTrack.Core\obj\Debug\net8.0\OptiTrack.Core.AssemblyInfoInputs.cache

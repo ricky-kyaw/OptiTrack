@@ -52,7 +52,7 @@ namespace OptiTrack.App.UI.ctrls {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/OptiTrack.App;component/ui/ctrls/clockin.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/OptiTrack.App;V1.0.0.0;component/ui/ctrls/clockin.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\UI\ctrls\ClockIn.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

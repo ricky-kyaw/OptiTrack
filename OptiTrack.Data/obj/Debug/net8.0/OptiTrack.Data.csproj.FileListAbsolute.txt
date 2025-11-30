@@ -9,8 +9,8 @@ C:\Users\Acer\source\repos\OptiTrack\OptiTrack.Data\obj\Debug\net8.0\OptiTrack.D
 C:\Users\Acer\source\repos\OptiTrack\OptiTrack.Data\obj\Debug\net8.0\refint\OptiTrack.Data.dll
 C:\Users\Acer\source\repos\OptiTrack\OptiTrack.Data\obj\Debug\net8.0\OptiTrack.Data.pdb
 C:\Users\Acer\source\repos\OptiTrack\OptiTrack.Data\obj\Debug\net8.0\ref\OptiTrack.Data.dll
-C:\OptiTrackApp\OptiTrack.Data\bin\Debug\net8.0\OptiTrack.Data.deps.json
 C:\OptiTrackApp\OptiTrack.Data\bin\Debug\net8.0\OptiTrack.Data.dll
+C:\OptiTrackApp\OptiTrack.Data\bin\Debug\net8.0\OptiTrack.Data.deps.json
 C:\OptiTrackApp\OptiTrack.Data\bin\Debug\net8.0\OptiTrack.Data.pdb
 C:\OptiTrackApp\OptiTrack.Data\obj\Debug\net8.0\OptiTrack.Data.csproj.AssemblyReference.cache
 C:\OptiTrackApp\OptiTrack.Data\obj\Debug\net8.0\OptiTrack.Data.Properties.Resources.resources

@@ -1,0 +1,101 @@
+﻿<UserControl x:Class="OptiTrack.App.UI.ctrls.AddEmployee"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Background="#F8F9FA">
+
+    <Grid Margin="40">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <TextBlock Text="Add New Employee"
+                   FontSize="28"
+                   FontWeight="Bold"
+                   Foreground="#1F2937"
+                   Margin="0,0,0,20"/>
+
+        <!-- Form Container -->
+        <Border Grid.Row="1"
+                Background="White"
+                CornerRadius="12"
+                Padding="30"
+                Effect="{DynamicResource ShadowEffect}">
+
+            <StackPanel>
+
+                <!-- First + Last Name -->
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,12">
+                    <StackPanel Width="250" Margin="0,0,20,0">
+                        <TextBlock Text="First Name" FontWeight="SemiBold"/>
+                        <TextBox x:Name="FirstNameBox" Height="32" />
+                    </StackPanel>
+
+                    <StackPanel Width="250">
+                        <TextBlock Text="Last Name" FontWeight="SemiBold"/>
+                        <TextBox x:Name="LastNameBox" Height="32" />
+                    </StackPanel>
+                </StackPanel>
+
+                <!-- Email -->
+                <StackPanel Margin="0,0,0,12">
+                    <TextBlock Text="Email" FontWeight="SemiBold"/>
+                    <TextBox x:Name="EmailBox" Height="32" Width="520"/>
+                </StackPanel>
+
+                <!-- Department / Job Title -->
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,12">
+                    <StackPanel Width="250" Margin="0,0,20,0">
+                        <TextBlock Text="Department" FontWeight="SemiBold"/>
+                        <ComboBox x:Name="DepartmentCombo" Height="32"/>
+                    </StackPanel>
+
+                    <StackPanel Width="250">
+                        <TextBlock Text="Job Title" FontWeight="SemiBold"/>
+                        <ComboBox x:Name="JobTitleCombo" Height="32"/>
+                    </StackPanel>
+                </StackPanel>
+
+                <!-- Pay Type + Pay Rate -->
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,12">
+                    <StackPanel Width="250" Margin="0,0,20,0">
+                        <TextBlock Text="Pay Type" FontWeight="SemiBold"/>
+                        <ComboBox x:Name="PayTypeCombo" Height="32"/>
+                    </StackPanel>
+
+                    <StackPanel Width="250">
+                        <TextBlock Text="Pay Rate" FontWeight="SemiBold"/>
+                        <TextBox x:Name="PayRateBox" Height="32"/>
+                    </StackPanel>
+                </StackPanel>
+
+                <!-- Role -->
+                <StackPanel Margin="0,0,0,12">
+                    <TextBlock Text="Role" FontWeight="SemiBold"/>
+                    <ComboBox x:Name="RoleCombo" Height="32" Width="520"/>
+                </StackPanel>
+
+                <!-- Initial Password -->
+                <StackPanel Margin="0,0,0,20">
+                    <TextBlock Text="Initial Password" FontWeight="SemiBold"/>
+                    <PasswordBox x:Name="PasswordBox" Height="32" Width="520"/>
+                </StackPanel>
+
+                <!-- Add Button -->
+                <Button Content="Create Employee"
+                        x:Name="AddEmployeeBtn"
+                        Height="40"
+                        Width="200"
+                        Background="#2563EB"
+                        Foreground="White"
+                        FontWeight="Bold"
+                        Click="AddEmployeeBtn_Click"/>
+            </StackPanel>
+        </Border>
+
+    </Grid>
+</UserControl>

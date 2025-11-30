@@ -1,0 +1,70 @@
+﻿<Window x:Class="OptiTrack.App.UI.admin.EditEmployeeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Edit Employee"
+        Height="550" Width="450"
+        WindowStartupLocation="CenterScreen"
+        Background="#F3F4F6">
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Edit Employee"
+                   FontSize="24"
+                   FontWeight="Bold"
+                   Margin="0,0,0,20"/>
+
+        <StackPanel Grid.Row="1">
+
+            <StackPanel Margin="0,0,0,12">
+                <TextBlock Text="Email"/>
+                <TextBox x:Name="EmailBox" IsReadOnly="True"/>
+            </StackPanel>
+
+            <StackPanel Margin="0,0,0,12">
+                <TextBlock Text="First Name"/>
+                <TextBox x:Name="FirstNameBox"/>
+            </StackPanel>
+
+            <StackPanel Margin="0,0,0,12">
+                <TextBlock Text="Last Name"/>
+                <TextBox x:Name="LastNameBox"/>
+            </StackPanel>
+
+            <StackPanel Margin="0,0,0,12">
+                <TextBlock Text="Department"/>
+                <ComboBox x:Name="DepartmentCombo"/>
+            </StackPanel>
+
+            <StackPanel Margin="0,0,0,12">
+                <TextBlock Text="Job Title"/>
+                <ComboBox x:Name="JobTitleCombo"/>
+            </StackPanel>
+
+            <StackPanel Margin="0,0,0,12">
+                <TextBlock Text="Pay Type"/>
+                <ComboBox x:Name="PayTypeCombo"/>
+            </StackPanel>
+
+            <StackPanel Margin="0,0,0,12">
+                <TextBlock Text="Pay Rate"/>
+                <TextBox x:Name="PayRateBox"/>
+            </StackPanel>
+
+            <StackPanel Margin="0,0,0,12">
+                <TextBlock Text="Role"/>
+                <ComboBox x:Name="RoleCombo"/>
+            </StackPanel>
+
+            <Button Content="Save Changes"
+                    Height="40"
+                    Background="#2563EB"
+                    Foreground="White"
+                    Margin="0,10,0,0"
+                    Click="SaveChanges_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

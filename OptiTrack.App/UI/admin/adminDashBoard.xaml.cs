@@ -1,4 +1,5 @@
-﻿using OptiTrack.App.UI.general;
+﻿using OptiTrack.App.UI.ctrls;
+using OptiTrack.App.UI.general;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,7 +28,8 @@ namespace OptiTrack.App.UI.admin
 
         private void AddEmployee_Click(object sender, RoutedEventArgs e)
         {
-
+            var addWindow = new AddEmployeeWindow();
+            addWindow.Show();
         }
 
         private void ManageSetup_Click(object sender, RoutedEventArgs e)
@@ -37,7 +39,9 @@ namespace OptiTrack.App.UI.admin
 
         private void ViewLogs_Click(object sender, RoutedEventArgs e)
         {
-
+            var win = new ViewAllLogs();
+            win.Owner = this;
+            win.ShowDialog();
         }
 
         private void ManageOvertime_Click(object sender, RoutedEventArgs e)
@@ -52,7 +56,9 @@ namespace OptiTrack.App.UI.admin
 
         private void ViewEmployees_Click(object sender, RoutedEventArgs e)
         {
-
+            var win = new ManageEmployees();
+            win.Owner = this;
+            win.ShowDialog();
         }
 
         private void Logout_Click(object sender, RoutedEventArgs e)
@@ -64,8 +70,9 @@ namespace OptiTrack.App.UI.admin
 
         private void ViewAllLogs_Click(object sender, RoutedEventArgs e)
         {
-            // TODO: Implement logic to view all logs
-            MessageBox.Show("View All Logs clicked!");
+            var win = new ViewAllLogs();
+            win.Owner = this;
+            win.ShowDialog();
         }
     }
 }

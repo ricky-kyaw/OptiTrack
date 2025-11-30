@@ -61,5 +61,65 @@ namespace OptiTrack.Data.DBConnector
                                   .ToList();
             }
         }
+        public List<Employee> GetAllEmployees()
+        {
+            using (var db = new TableModelsDataContext(Properties.Resources.connectionString))
+            {
+                return db.Employees
+                         .OrderBy(e => e.FirstName)
+                         .ThenBy(e => e.LastName)
+                         .ToList();
+            }
+        }
+
+        public List<Attendance> GetAllAttendanceLogs()
+        {
+            using (var db = new TableModelsDataContext(Properties.Resources.connectionString))
+            {
+                return db.Attendances
+                         .OrderByDescending(a => a.ClockInTime)
+                         .ToList();
+            }
+        }
+        public List<dynamic> GetAllEmployeesFull()
+        {
+            using (var db = new TableModelsDataContext(Properties.Resources.connectionString))
+            {
+                var list = (from e in db.Employees
+                            join d in db.Departments on e.DepartmentID equals d.DepartmentID
+                            join j in db.JobTitles on e.JobTitleID equals j.JobTitleID
+                            select new
+                            {
+                                e.EmployeeID,
+                                e.FirstName,
+                                e.LastName,
+                                e.Email,
+                                Department = d.DepartmentName,
+                                JobTitle = j.TitleName,
+                                e.PayRate
+                            }).ToList<dynamic>();
+
+                return list;
+            }
+        }
+
+        public List<dynamic> GetAllAttendanceLogsFull()
+        {
+            using (var db = new TableModelsDataContext(Properties.Resources.connectionString))
+            {
+                var logs = (from a in db.Attendances
+                            join e in db.Employees on a.EmployeeID equals e.EmployeeID
+                            orderby a.ClockInTime descending
+                            select new
+                            {
+                                Employee = e.FirstName + " " + e.LastName,
+                                a.ClockInTime,
+                                a.ClockOutTime
+                            }).ToList<dynamic>();
+
+                return logs;
+            }
+        }
+
     }
 }

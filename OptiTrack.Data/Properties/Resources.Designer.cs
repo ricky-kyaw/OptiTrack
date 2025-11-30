@@ -22,7 +22,7 @@ namespace OptiTrack.Data.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -63,7 +63,7 @@ namespace OptiTrack.Data.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Data Source=MSI;Initial Catalog=OptiTrackDB;Integrated Security=True;Trust Server Certificate=True.
         /// </summary>
-        internal static string connectionString {
+        public static string connectionString {
             get {
                 return ResourceManager.GetString("connectionString", resourceCulture);
             }

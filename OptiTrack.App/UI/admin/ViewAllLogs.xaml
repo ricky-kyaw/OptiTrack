@@ -1,0 +1,81 @@
+﻿<Window x:Class="OptiTrack.App.UI.admin.ViewAllLogs"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Attendance Logs"
+        Height="700" Width="1100"
+        WindowStartupLocation="CenterScreen"
+        Background="#F3F4F6">
+
+    <Grid Margin="30">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <TextBlock Grid.Row="0"
+                   Text="Attendance Logs"
+                   FontSize="28"
+                   FontWeight="Bold"
+                   Foreground="#111827"
+                   Margin="0,0,0,10"/>
+
+        <!-- Search bar -->
+        <StackPanel Grid.Row="1"
+                    Orientation="Horizontal"
+                    Margin="0,0,0,12">
+            <TextBlock Text="Search by name / email:"
+                       VerticalAlignment="Center"
+                       Margin="0,0,8,0"
+                       Foreground="#4B5563" />
+            <TextBox x:Name="SearchBox"
+                     Width="280"
+                     Height="28"
+                     TextChanged="SearchBox_TextChanged"/>
+        </StackPanel>
+
+        <!-- Logs grid -->
+        <Border Grid.Row="2"
+                Background="White"
+                CornerRadius="10"
+                Padding="10"
+                BorderBrush="#E5E7EB"
+                BorderThickness="1">
+            <DataGrid x:Name="LogsGrid"
+                      AutoGenerateColumns="False"
+                      CanUserAddRows="False"
+                      IsReadOnly="True"
+                      HeadersVisibility="Column"
+                      GridLinesVisibility="Horizontal"
+                      ColumnHeaderHeight="32"
+                      RowHeight="28">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Employee"
+                                        Binding="{Binding EmployeeName}"
+                                        Width="2*" />
+                    <DataGridTextColumn Header="Email"
+                                        Binding="{Binding Email}"
+                                        Width="2*" />
+                    <DataGridTextColumn Header="Clock In"
+                                        Width="1.5*">
+                        <DataGridTextColumn.Binding>
+                            <Binding Path="ClockInTime"
+                                     StringFormat="g" />
+                        </DataGridTextColumn.Binding>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="Clock Out"
+                                        Width="1.5*">
+                        <DataGridTextColumn.Binding>
+                            <Binding Path="ClockOutTime"
+                                     StringFormat="g" />
+                        </DataGridTextColumn.Binding>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="Hours"
+                                        Binding="{Binding HoursWorked, StringFormat=F2}"
+                                        Width="80" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </Border>
+    </Grid>
+</Window>

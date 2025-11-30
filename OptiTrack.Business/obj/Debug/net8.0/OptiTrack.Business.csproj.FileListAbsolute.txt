@@ -1,5 +1,5 @@
-C:\OptiTrackApp\OptiTrack.Business\bin\Debug\net8.0\OptiTrack.Business.deps.json
 C:\OptiTrackApp\OptiTrack.Business\bin\Debug\net8.0\OptiTrack.Business.dll
+C:\OptiTrackApp\OptiTrack.Business\bin\Debug\net8.0\OptiTrack.Business.deps.json
 C:\OptiTrackApp\OptiTrack.Business\bin\Debug\net8.0\OptiTrack.Business.pdb
 C:\OptiTrackApp\OptiTrack.Business\bin\Debug\net8.0\OptiTrack.Data.dll
 C:\OptiTrackApp\OptiTrack.Business\bin\Debug\net8.0\OptiTrack.Data.pdb

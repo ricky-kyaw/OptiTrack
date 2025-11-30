@@ -1,0 +1,16 @@
+﻿<Window x:Class="OptiTrack.App.UI.admin.AddEmployeeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:OptiTrack.App.UI.ctrls"
+        Title="Add Employee"
+        Height="700" Width="600"
+        WindowStartupLocation="CenterScreen"
+        Background="#F8F9FA">
+
+    <Grid>
+        <local:AddEmployee
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"/>
+    </Grid>
+
+</Window>
